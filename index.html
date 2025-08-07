@@ -1,290 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BRICKS ENGINEERING | Manraj Singh</title>
-  <meta name="description" content="BRICKS ENGINEERING offers fun, educational LEGO-based programs like STEM workshops, camps, and parties for kids.">
-  <meta name="keywords" content="LEGO, STEM, workshops, kids camps, birthday parties, engineering">
-  <style>
-    :root {
-      --main-bg: #fffde7;
-      --primary: #4fc3f7;
-      --accent: #ff8a80;
-      --highlight: #fff176;
-      --text: #1a237e;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-  font-family: 'Comic Neue', 'Segoe UI', sans-serif;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--main-bg);
-      color: var(--text);
-      scroll-behavior: smooth;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 20px;
-      background: #9BD3F3;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-   nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #9BD3F3;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: white;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-nav a:hover {
-  background: var(--accent);
-}
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 250px;
-    background-color: #9BD3F3;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    padding-top: 60px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .nav-links.show {
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-links li {
-    text-align: left;
-    padding: 10px 20px;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: all 0.4s ease;
-  }
-
-  .nav-links.show li {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .nav-links.show li:nth-child(1) { transition-delay: 0.1s; }
-  .nav-links.show li:nth-child(2) { transition-delay: 0.2s; }
-  .nav-links.show li:nth-child(3) { transition-delay: 0.3s; }
-  .nav-links.show li:nth-child(4) { transition-delay: 0.4s; }
-}
-
-    header {
-      background: linear-gradient(to right, var(--accent), var(--highlight));
-      color: var(--text);
-      text-align: center;
-      padding: 80px 20px;
-    }
-    header h2 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2em;
-    }
-    header button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: var(--primary);
-      border: none;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      font-size: 1em;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      height: 200px;
-    }
-    .carousel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      opacity: 0;
-      transition: opacity 1s;
-    }
-    .carousel img.active {
-      opacity: 1;
-    }
-    .review-form input,
-    .review-form textarea,
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid var(--highlight);
-    }
-    .review-form button,
-    .contact-form button,
-    header button {
-      background: var(--primary);
-      color: white;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .review-form button:hover,
-    .contact-form button:hover,
-    header button:hover {
-      background: var(--accent);
-    }
-  #stars {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  gap: 5px;
-  direction: rtl; /* <-- key line */
-}
-
-.star {
-  font-size: 2rem;
-  cursor: pointer;
-  color: #ccc;
-  transition: color 0.3s;
-}
-
-.star:hover,
-.star:hover ~ .star,
-.star.filled {
-  color: gold;
-}
-    .footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 30px 10px;
-    }
-    .footer a {
-      color: var(--accent);
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  
-    .promo-popup {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #fff176;
-      color: #1a237e;
-      padding: 15px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      font-weight: bold;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      animation: slideUp 1s ease;
-    }
-
-    .promo-popup a {
-      color: #d84315;
-      text-decoration: underline;
-    }
-
-    .promo-popup span {
-      cursor: pointer;
-      font-size: 1.2em;
-    }
-
-    @keyframes slideUp {
-      from {
-        transform: translateY(100px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-</style>
+  <title>BRICKS ENGINEERING</title>
+  <meta name="description" content="BRICKS ENGINEERING LEGO-based programs for kids">
+  <meta name="keywords" content="LEGO, STEM, workshops, kids, engineering">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav>
     <div class="logo">BRICKS ENGINEERING</div>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">☰</div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#programs">Programs</a></li>
@@ -292,14 +20,7 @@ nav a:hover {
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-      <!-- 🎉 Promo Popup (hidden by default) -->
-    <!--
-    <div class="promo-popup" id="promoPopup">
-      <p>🎁 20% OFF LEGO Camps this July! <a href="#contact">Book Now</a></p>
-      <span onclick="document.getElementById('promoPopup').style.display='none'">❌</span>
-    </div>
-    -->
-</nav>
+  </nav>
 
   <header id="home">
     <h2>Welcome to BRICKS ENGINEERING</h2>
@@ -340,15 +61,15 @@ nav a:hover {
       <input type="text" id="reviewerName" placeholder="Your Name (optional)">
       <textarea id="reviewText" rows="3" placeholder="Write your review..."></textarea>
       <div id="stars">
-        <span class="star" data-value="1">★</span>
-        <span class="star" data-value="2">★</span>
-        <span class="star" data-value="3">★</span>
-        <span class="star" data-value="4">★</span>
         <span class="star" data-value="5">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="1">★</span>
       </div>
       <button type="submit">Submit Review</button>
     </form>
-    <div id="reviewList" style="margin-top: 30px;"></div>
+    <div class="review-grid" id="reviewList"></div>
   </section>
 
   <section id="contact">
@@ -371,62 +92,9 @@ nav a:hover {
 
   <div class="footer">
     <p>© 2025 BRICKS ENGINEERING LIMITED</p>
-    <p>
-      <a href="https://linkedin.com/in/manraj-singh-1b443a234">LinkedIn</a> |
-      <a href="https://github.com/manrajsinghdhaliwal">GitHub</a>
-    </p>
   </div>
 
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('show');
-    }
-
-    // Carousel logic
-    function startCarousel(id) {
-      const images = document.querySelectorAll(`#${id} img`);
-      let index = 0;
-      setInterval(() => {
-        images.forEach(img => img.classList.remove('active'));
-        index = (index + 1) % images.length;
-        images[index].classList.add('active');
-      }, 3000);
-    }
-    startCarousel('carousel1');
-    startCarousel('carousel2');
-
-    // Review logic
-    let selectedRating = 0;
-    document.querySelectorAll('.star').forEach(star => {
-      star.addEventListener('click', () => {
-        selectedRating = parseInt(star.dataset.value);
-        highlightStars(selectedRating);
-      });
-    });
-    function highlightStars(rating) {
-      document.querySelectorAll('.star').forEach(star => {
-        const val = parseInt(star.dataset.value);
-        star.classList.toggle('filled', val <= rating);
-      });
-    }
-    function submitReview(e) {
-      e.preventDefault();
-      const name = document.getElementById('reviewerName').value.trim() || 'Anonymous';
-      const text = document.getElementById('reviewText').value.trim();
-      if (!text || selectedRating === 0) return alert('Please enter a review and select stars.');
-      const reviewHTML = `<div class='card'><strong>${name}</strong><p>${'★'.repeat(selectedRating)}${'☆'.repeat(5 - selectedRating)}</p><p>${text}</p></div>`;
-      document.getElementById('reviewList').innerHTML += reviewHTML;
-      document.getElementById('reviewerName').value = '';
-      document.getElementById('reviewText').value = '';
-      highlightStars(0);
-      selectedRating = 0;
-    }
-      // Uncomment to show promo popup on load
-    // window.addEventListener('load', () => {
-    //   const popup = document.getElementById('promoPopup');
-    //   popup.style.display = 'flex';
-    //   setTimeout(() => popup.style.display = 'none', 10000);
-    // });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
+
