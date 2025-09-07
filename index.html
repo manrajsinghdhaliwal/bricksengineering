@@ -1,18 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BRICKS ENGINEERING</title>
-  <meta name="description" content="BRICKS ENGINEERING LEGO-based programs for kids">
-  <meta name="keywords" content="LEGO, STEM, workshops, kids, engineering">
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BRICKS — Fun Parties & Camps for Kids</title>
+  <meta name="description" content="BRICKS: LEGO-based parties, camps and workshops for kids (ages 3–14).">
+     <link rel="stylesheet" href="styles.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700;400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link
 </head>
 <body>
-  <nav>
-    <div class="logo">BRICKS ENGINEERING</div>
-    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">☰</div>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">BRICKS</div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#programs">Programs</a></li>
@@ -20,82 +21,159 @@
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </div>
+</nav>
 
-  <header id="home">
-    <h2>Welcome to BRICKS ENGINEERING</h2>
-    <p>Inspiring creativity, learning, and fun through LEGO-based programs.</p>
-    <a href="#contact"><button>Book a Session</button></a>
+<main>
+  <header id="home" class="hero">
+    <div class="stud s1"></div>
+    <div class="stud s2"></div>
+    <h1>We build fun — parties, workshops & camps for kids (3–14 yrs)</h1>
+    <p>Safe, creative and unforgettable experiences with LEGO-inspired activities for children and peace-of-mind for parents.</p>
+    <div style="margin-top:12px" class="cta">
+      <button class="btn" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Book a Party</button>
+      <button class="btn secondary" onclick="document.querySelector('#programs').scrollIntoView({behavior:'smooth'})">See Programs</button>
+    </div>
   </header>
 
   <section id="programs">
     <h2>🎯 Programs We Offer</h2>
     <div class="grid">
-      <div class="card"><h3>Birthday Parties</h3><p>Fun LEGO themes & games for birthdays.</p></div>
-      <div class="card"><h3>STEM Workshops</h3><p>Hands-on engineering activities.</p></div>
-      <div class="card"><h3>Holiday Camps</h3><p>Learning with LEGO all vacation long.</p></div>
+      <div class="card">
+        <div class="age">Ages 3–8 • Birthday & Play</div>
+        <h3>Birthday Parties</h3>
+        <p>Theme-based builds, group games and a trained host to handle everything.</p>
+      </div>
+      <div class="card">
+        <div class="age">Ages 7–14 • Learning & Play</div>
+        <h3>STEM Workshops</h3>
+        <p>Hands-on engineering concepts made fun with LEGO models and challenges.</p>
+      </div>
+      <div class="card">
+        <div class="age">Ages 5–12 • School Holidays</div>
+        <h3>Holiday Camps</h3>
+        <p>Multi-day camps during vacations with projects, games and take-home models.</p>
+      </div>
     </div>
   </section>
 
   <section id="gallery">
     <h2>📸 Photo Gallery</h2>
-    <div class="grid">
-      <div class="carousel" id="carousel1">
-        <img src="images/photo1.png" class="active">
-        <img src="images/photo2.png">
-        <img src="images/photo3.png">
-        <img src="images/photo7.png">
-      </div>
-      <div class="carousel" id="carousel2">
-        <img src="images/photo4.png" class="active">
-        <img src="images/photo5.png">
-        <img src="images/photo6.png">
-        <img src="images/photo8.png">
-      </div>
+    <div class="gallery">
+      <img src="images/photo1.png" alt="kids building 1">
+      <img src="images/photo2.png" alt="kids building 2">
+      <img src="images/photo3.png" alt="kids building 3">
+      <img src="images/photo4.png" alt="kids building 4">
     </div>
   </section>
 
   <section id="reviews">
-    <h2>⭐ Leave a Review</h2>
-    <form class="review-form" onsubmit="submitReview(event)">
-      <input type="text" id="reviewerName" placeholder="Your Name">
-      <textarea id="reviewText" rows="3" placeholder="Write your review..."></textarea>
-      <div id="stars">
-        <span class="star" data-value="5">★</span>
-        <span class="star" data-value="4">★</span>
-        <span class="star" data-value="3">★</span>
-        <span class="star" data-value="2">★</span>
-        <span class="star" data-value="1">★</span>
+    <h2>⭐ Reviews from Parents</h2>
+    <div class="reviews-wrap">
+      <div>
+        <div id="reviewGrid" class="review-grid" aria-live="polite"></div>
       </div>
-      <button type="submit">Submit Review</button>
-    </form>
-    <div class="review-grid" id="reviewList"></div>
+
+      <aside>
+        <div class="review-card">
+          <h3>Leave a review</h3>
+          <form id="reviewForm">
+            <input type="text" id="name" placeholder="Your name (optional)">
+            <input type="email" id="email" placeholder="Your email (keeps review verified)" required>
+            <label for="rating">Rating</label>
+            <select id="rating" required>
+              <option value="5">5 — Excellent</option>
+              <option value="4">4 — Very good</option>
+              <option value="3">3 — Good</option>
+              <option value="2">2 — Okay</option>
+              <option value="1">1 — Poor</option>
+            </select>
+            <textarea id="message" rows="4" placeholder="Tell other parents what you liked" required></textarea>
+            <button type="submit">Submit review</button>
+          </form>
+          <p style="font-size:13px;color:#666;margin-top:8px">Reviews are moderated. We may contact you to verify details.</p>
+        </div>
+      </aside>
+    </div>
   </section>
 
   <section id="contact">
-    <h2>📞 Contact Us</h2>
-    <form class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Your Phone" required maxlength="10">
-      <select name="event" required>
-        <option value="">Select Event Type</option>
-        <option>Birthday Party</option>
-        <option>Workshop</option>
-        <option>Camp</option>
-        <option>Other</option>
-      </select>
-      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <h2>📞 Contact & Bookings</h2>
+    <div style="display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start;">
+      <form id="contactForm">
+        <input name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Phone" required>
+        <select name="eventType" required>
+          <option value="">Select event</option>
+          <option>Birthday Party</option>
+          <option>Workshop</option>
+          <option>Camp</option>
+          <option>Other</option>
+        </select>
+        <textarea name="message" rows="5" placeholder="Tell us about your event" required></textarea>
+        <button type="submit">Send enquiry</button>
+      </form>
+
+      <div style="background:var(--card); padding:14px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.04)">
+        <h4>Reach us</h4>
+        <p>Phone: <a href="tel:+911234567890">+91 12345 67890</a></p>
+        <p>Email: <a href="mailto:hello@bricks.example">hello@bricks.example</a></p>
+        <p style="margin-top:10px;font-size:14px">Or message us on WhatsApp</p>
+        <a class="btn" href="https://wa.me/911234567890" target="_blank" rel="noreferrer noopener">Open WhatsApp</a>
+      </div>
+    </div>
   </section>
 
-  <div class="footer">
-    <p>© 2025 BRICKS ENGINEERING LIMITED</p>
-  </div>
+</main>
 
-  <script src="script.js"></script>
+<footer>
+  <p>© 2025 BRICKS ENGINEERING • Trusted by families • Built with care</p>
+</footer>
+  <script src="index.js"></script>
+
+<!--
+  Backend (Node.js + Express) example — create a file server.js in the project root.
+
+  const express = require('express');
+  const fs = require('fs');
+  const path = require('path');
+  const app = express();
+  app.use(express.json());
+  const DATA_FILE = path.join(__dirname,'reviews.json');
+
+  // serve frontend static
+  app.use(express.static(path.join(__dirname,'public')));
+
+  function readData(){ try{ return JSON.parse(fs.readFileSync(DATA_FILE)); }catch(e){ return {reviews:[]}; } }
+  function writeData(d){ fs.writeFileSync(DATA_FILE, JSON.stringify(d,null,2)); }
+
+  // get reviews
+  app.get('/api/reviews', (req,res)=>{ const d = readData(); res.json(d.reviews||[]); });
+
+  // post review (simple moderation: push as pending)
+  app.post('/api/reviews', (req,res)=>{
+    const {name,email,rating,message} = req.body;
+    if(!email || !message) return res.status(400).json({error:'missing fields'});
+    const d = readData();
+    const review = {id:Date.now(), name:name||'Anonymous', email, rating: Number(rating)||5, message, createdAt:new Date().toISOString(), status:'pending'};
+    d.reviews = d.reviews || [];
+    d.reviews.push(review);
+    writeData(d);
+    // optionally: send admin email here
+    res.status(201).json({ok:true});
+  });
+
+  // contact endpoint
+  app.post('/api/contact', (req,res)=>{ console.log('contact:',req.body); res.json({ok:true}); });
+
+  const port = process.env.PORT || 3000; app.listen(port, ()=>console.log('Listening',port));
+
+  Also include reviews.json initial file: {"reviews":[]}
+
+  Deployment notes included in README below.
+-->
+
 </body>
 </html>
-
-
